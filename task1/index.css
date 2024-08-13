@@ -1,25 +1,92 @@
 body {
     font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
     padding: 20px;
-    display: flex;
-    justify-content: center;
 }
-
 .container {
-    width: 100%;
-    max-width: 600px;
+    max-width: 800px;
+    margin: 0 auto;
     background-color: #fff;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
-    font-size: 24px;
     margin-bottom: 10px;
+    font-size: 24px;
 }
 
-p {
+.subtitle {
+    margin-top: 0;
     font-size: 16px;
     color: #888;
-    margin-bottom: 20px;
-​⬤
+}
+
+button {
+    background-color: #007acc;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #005f99;
+}
+
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.status {
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.todo {
+    background-color: #ddd;
+}
+
+.in-progress {
+    background-color: #ffeb99;
+}
+
+.complete {
+    background-color: #d4edda;
+}
+
+.edit-btn, .remove-btn {
+    background-color: #007acc;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.remove-btn {
+    background-color: #e74c3c;
+}
+
+.edit-btn:hover, .remove-btn:hover {
+    opacity: 0.8;
+}
