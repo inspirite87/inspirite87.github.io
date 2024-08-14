@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
     container.appendChild(taskInput);
 
     const statusInput = document.createElement('select');
-    const statuses = ['Todo', 'In Progress', 'Complete'];
+    const statuses = ['Todo', 'Good', 'Bad'];
     statuses.forEach(status => {
         const option = document.createElement('option');
         option.value = status;
@@ -64,4 +64,33 @@ document.addEventListener('DOMContentLoaded', function () {
             const editCell = document.createElement('td');
             const editBtn = document.createElement('button');
             editBtn.textContent = 'Edit';
-            editBtn.addEventListener('​⬤
+            editBtn.addEventListener('click', function () {
+                const newTaskName = prompt('Edit task name:', taskName);
+                if (newTaskName) {
+                    nameCell.textContent = newTaskName;
+                }
+                const newStatus = prompt('Update status (Todo, In Progress, Complete):', statusCell.textContent);
+                if (newStatus) {
+                    statusCell.textContent = newStatus;
+                }
+            });
+            editCell.appendChild(editBtn);
+            row.appendChild(editCell);
+
+            const removeCell = document.createElement('td');
+            const removeBtn = document.createElement('button');
+            removeBtn.textContent = 'Remove';
+            removeBtn.addEventListener('click', function () {
+                if (confirm('Are you sure you want to remove this task?')) {
+                    tbody.removeChild(row);
+                }
+            });
+            removeCell.appendChild(removeBtn);
+            row.appendChild(removeCell);
+
+            tbody.appendChild(row);
+            taskId++;
+            taskInput.value = '';
+        }
+    });
+});
