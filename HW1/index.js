@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', function () {
     header.textContent = 'TODO List';
     container.appendChild(header);
 
-   
     const addTaskBtn = document.createElement('button');
     addTaskBtn.textContent = 'Add Task';
     container.appendChild(addTaskBtn);
