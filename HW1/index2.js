@@ -6,11 +6,13 @@ document.addEventListener('DOMContentLoaded', function () {
     header.textContent = 'TODO List';
     container.appendChild(header);
 
+    // Task input
     const taskInput = document.createElement('input');
     taskInput.type = 'text';
     taskInput.placeholder = 'Enter task name';
     container.appendChild(taskInput);
 
+    // Status select input
     const statusInput = document.createElement('select');
     const statuses = ['Todo', 'Good', 'Bad'];
     statuses.forEach(status => {
@@ -21,16 +23,18 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     container.appendChild(statusInput);
 
+    // Add Task button
     const addTaskBtn = document.createElement('button');
     addTaskBtn.textContent = 'Add Task';
     container.appendChild(addTaskBtn);
 
+    // Create table for tasks
     const table = document.createElement('table');
     container.appendChild(table);
 
     const thead = document.createElement('thead');
     const headerRow = document.createElement('tr');
-    ['#', 'Task Name', 'Status', 'Edit', 'Remove'].forEach(text => {
+    ['#', 'Task Name', 'Status', 'Edit', 'Delete'].forEach(text => {
         const th = document.createElement('th');
         th.textContent = text;
         headerRow.appendChild(th);
@@ -42,6 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
     table.appendChild(tbody);
 
     let taskId = 1;
+
     addTaskBtn.addEventListener('click', function () {
         const taskName = taskInput.value.trim();
         const status = statusInput.value;
@@ -49,44 +54,68 @@ document.addEventListener('DOMContentLoaded', function () {
         if (taskName) {
             const row = document.createElement('tr');
 
+            // ID cell
             const idCell = document.createElement('td');
             idCell.textContent = taskId;
             row.appendChild(idCell);
 
+            // Task Name cell
             const nameCell = document.createElement('td');
             nameCell.textContent = taskName;
             row.appendChild(nameCell);
 
+            // Status cell
             const statusCell = document.createElement('td');
             statusCell.textContent = status;
             row.appendChild(statusCell);
 
+            // Edit button and functionality
             const editCell = document.createElement('td');
             const editBtn = document.createElement('button');
             editBtn.textContent = 'Edit';
             editBtn.addEventListener('click', function () {
-                const newTaskName = prompt('Edit task name:', taskName);
-                if (newTaskName) {
-                    nameCell.textContent = newTaskName;
-                }
-                const newStatus = prompt('Update status (Todo, In Progress, Complete):', statusCell.textContent);
-                if (newStatus) {
-                    statusCell.textContent = newStatus;
-                }
+                // Create inputs for editing task name and status
+                const editTaskInput = document.createElement('input');
+                editTaskInput.type = 'text';
+                editTaskInput.value = taskName;
+
+                const editStatusInput = document.createElement('select');
+                statuses.forEach(statusOption => {
+                    const option = document.createElement('option');
+                    option.value = statusOption;
+                    option.textContent = statusOption;
+                    if (statusOption === statusCell.textContent) {
+                        option.selected = true;
+                    }
+                    editStatusInput.appendChild(option);
+                });
+
+                const saveBtn = document.createElement('button');
+                saveBtn.textContent = 'Save';
+                saveBtn.addEventListener('click', function () {
+                    nameCell.textContent = editTaskInput.value;
+                    statusCell.textContent = editStatusInput.value;
+                    editCell.replaceChild(editBtn, saveBtn);
+                    row.replaceChild(nameCell, editTaskInput);
+                    row.replaceChild(statusCell, editStatusInput);
+                });
+
+                row.replaceChild(editTaskInput, nameCell);
+                row.replaceChild(editStatusInput, statusCell);
+                editCell.replaceChild(saveBtn, editBtn);
             });
             editCell.appendChild(editBtn);
             row.appendChild(editCell);
 
-            const removeCell = document.createElement('td');
-            const removeBtn = document.createElement('button');
-            removeBtn.textContent = 'Remove';
-            removeBtn.addEventListener('click', function () {
-                if (confirm('Are you sure you want to remove this task?')) {
-                    tbody.removeChild(row);
-                }
+            // Delete button and functionality
+            const deleteCell = document.createElement('td');
+            const deleteBtn = document.createElement('button');
+            deleteBtn.textContent = 'Delete';
+            deleteBtn.addEventListener('click', function () {
+                tbody.removeChild(row);
             });
-            removeCell.appendChild(removeBtn);
-            row.appendChild(removeCell);
+            deleteCell.appendChild(deleteBtn);
+            row.appendChild(deleteCell);
 
             tbody.appendChild(row);
             taskId++;
