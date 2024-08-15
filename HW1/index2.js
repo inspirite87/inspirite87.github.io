@@ -6,13 +6,12 @@ document.addEventListener('DOMContentLoaded', function () {
     header.textContent = 'TODO List';
     container.appendChild(header);
 
-    // Task input
+  
     const taskInput = document.createElement('input');
     taskInput.type = 'text';
     taskInput.placeholder = 'Enter task name';
     container.appendChild(taskInput);
 
-    // Status select input
     const statusInput = document.createElement('select');
     const statuses = ['Todo', 'Good', 'Bad'];
     statuses.forEach(status => {
@@ -23,12 +22,9 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     container.appendChild(statusInput);
 
-    // Add Task button
     const addTaskBtn = document.createElement('button');
     addTaskBtn.textContent = 'Add Task';
     container.appendChild(addTaskBtn);
-
-    // Create table for tasks
     const table = document.createElement('table');
     container.appendChild(table);
 
@@ -54,27 +50,24 @@ document.addEventListener('DOMContentLoaded', function () {
         if (taskName) {
             const row = document.createElement('tr');
 
-            // ID cell
+        
             const idCell = document.createElement('td');
             idCell.textContent = taskId;
             row.appendChild(idCell);
 
-            // Task Name cell
+
             const nameCell = document.createElement('td');
             nameCell.textContent = taskName;
             row.appendChild(nameCell);
-
-            // Status cell
             const statusCell = document.createElement('td');
             statusCell.textContent = status;
             row.appendChild(statusCell);
 
-            // Edit button and functionality
             const editCell = document.createElement('td');
             const editBtn = document.createElement('button');
             editBtn.textContent = 'Edit';
             editBtn.addEventListener('click', function () {
-                // Create inputs for editing task name and status
+               
                 const editTaskInput = document.createElement('input');
                 editTaskInput.type = 'text';
                 editTaskInput.value = taskName;
@@ -106,8 +99,6 @@ document.addEventListener('DOMContentLoaded', function () {
             });
             editCell.appendChild(editBtn);
             row.appendChild(editCell);
-
-            // Delete button and functionality
             const deleteCell = document.createElement('td');
             const deleteBtn = document.createElement('button');
             deleteBtn.textContent = 'Delete';
