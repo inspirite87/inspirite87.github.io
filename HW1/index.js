@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
     taskInput.type = 'text';
     taskInput.placeholder = 'Enter task name';
     container.appendChild(taskInput);
+    
 
     const statusInput = document.createElement('select');
     const statuses = ['Todo', 'Good', 'Bad'];
