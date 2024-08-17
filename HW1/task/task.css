@@ -1,0 +1,213 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-image: url('movie.jpeg');
+    background-size: cover;
+    background-position: center;
+    font-family: Arial, sans-serif;
+    padding: 10px;
+  }
+ 
+  #container {
+    padding: 20px;
+    background: rgba(160, 144, 131, 0.649);
+  }
+  
+  #moviesTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  #moviesTable th,
+  #moviesTable td {
+    border: 1px solid #03062172;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  #moviesTable th {
+    background-color: #66708f27;
+  }
+  
+  .poster {
+    width: 100px;
+    height: auto;
+  }
+ 
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+  }
+  
+  .modal-content {
+    background-color: #2f0f0f73;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+  }
+  
+  .modal-content .close {
+    color: #b6c5c7ed;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .modal-content .close:hover,
+  .modal-content .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  #modalPoster {
+    width: 100%;
+    height: auto;
+  }
+  
+  #favoritesContainer {
+    margin-top: 20px;
+  }
+  
+  #favoritesList {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  #favoritesList li {
+    padding: 8px;
+    border-bottom: 1px solid #3a79e57d;
+  }
+  
+  #favoritesList button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    background-color: #0f2ada;
+    border: none;
+    color: rgba(223, 222, 229, 0.98);
+    cursor: pointer;
+  }
+  
+  #favoritesList button:hover {
+    background-color: #cc0000;
+  }
+
+
+
+
+
+
+/*body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  
+  #container {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+
+  #moviesTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  #moviesTable th, #moviesTable td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  #moviesTable th {
+    background-color: #f2f2f2;
+  }
+  
+  .poster {
+    width: 100px;
+    height: auto;
+  }
+  
+
+  .modal {
+    display: none;
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4);
+  }
+  
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 800px;
+    position: relative;
+  }
+  
+  .modal img.poster {
+    width: 100%;
+    height: auto;
+  }
+  
+  .close {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 35px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  
+  #favoritesContainer {
+    margin-top: 20px;
+  }
+  
+  #favoritesContainer h2 {
+    margin: 0;
+  }
+  
+  #favoritesList {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  #favoritesList li {
+    padding: 5px;
+    border-bottom: 1px solid #ddd;
+  }*/
