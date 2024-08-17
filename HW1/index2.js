@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', function () {
     header.textContent = 'TODO List';
     container.appendChild(header);
 
-  
     const taskInput = document.createElement('input');
     taskInput.type = 'text';
     taskInput.placeholder = 'Enter task name';
@@ -25,12 +24,13 @@ document.addEventListener('DOMContentLoaded', function () {
     const addTaskBtn = document.createElement('button');
     addTaskBtn.textContent = 'Add Task';
     container.appendChild(addTaskBtn);
+
     const table = document.createElement('table');
     container.appendChild(table);
 
     const thead = document.createElement('thead');
     const headerRow = document.createElement('tr');
-    ['#', 'Task Name', 'Status', 'Edit', 'Delete'].forEach(text => {
+    ['#', 'Task Name', 'Status', 'Delete'].forEach(text => {
         const th = document.createElement('th');
         th.textContent = text;
         headerRow.appendChild(th);
@@ -41,8 +41,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const tbody = document.createElement('tbody');
     table.appendChild(tbody);
 
-    let taskId = 1;
-
     addTaskBtn.addEventListener('click', function () {
         const taskName = taskInput.value.trim();
         const status = statusInput.value;
@@ -50,67 +48,36 @@ document.addEventListener('DOMContentLoaded', function () {
         if (taskName) {
             const row = document.createElement('tr');
 
-        
             const idCell = document.createElement('td');
-            idCell.textContent = taskId;
+            idCell.textContent = tbody.children.length + 1;
             row.appendChild(idCell);
-
 
             const nameCell = document.createElement('td');
             nameCell.textContent = taskName;
             row.appendChild(nameCell);
+
             const statusCell = document.createElement('td');
             statusCell.textContent = status;
             row.appendChild(statusCell);
 
-            const editCell = document.createElement('td');
-            const editBtn = document.createElement('button');
-            editBtn.textContent = 'Edit';
-            editBtn.addEventListener('click', function () {
-               
-                const editTaskInput = document.createElement('input');
-                editTaskInput.type = 'text';
-                editTaskInput.value = taskName;
-
-                const editStatusInput = document.createElement('select');
-                statuses.forEach(statusOption => {
-                    const option = document.createElement('option');
-                    option.value = statusOption;
-                    option.textContent = statusOption;
-                    if (statusOption === statusCell.textContent) {
-                        option.selected = true;
-                    }
-                    editStatusInput.appendChild(option);
-                });
-
-                const saveBtn = document.createElement('button');
-                saveBtn.textContent = 'Save';
-                saveBtn.addEventListener('click', function () {
-                    nameCell.textContent = editTaskInput.value;
-                    statusCell.textContent = editStatusInput.value;
-                    editCell.replaceChild(editBtn, saveBtn);
-                    row.replaceChild(nameCell, editTaskInput);
-                    row.replaceChild(statusCell, editStatusInput);
-                });
-
-                row.replaceChild(editTaskInput, nameCell);
-                row.replaceChild(editStatusInput, statusCell);
-                editCell.replaceChild(saveBtn, editBtn);
-            });
-            editCell.appendChild(editBtn);
-            row.appendChild(editCell);
             const deleteCell = document.createElement('td');
             const deleteBtn = document.createElement('button');
             deleteBtn.textContent = 'Delete';
             deleteBtn.addEventListener('click', function () {
                 tbody.removeChild(row);
+                updateRowNumbers();
             });
             deleteCell.appendChild(deleteBtn);
             row.appendChild(deleteCell);
 
             tbody.appendChild(row);
-            taskId++;
             taskInput.value = '';
         }
     });
+
+    function updateRowNumbers() {
+        Array.from(tbody.children).forEach((row, index) => {
+            row.firstChild.textContent = index + 1;
+        });
+    }
 });
