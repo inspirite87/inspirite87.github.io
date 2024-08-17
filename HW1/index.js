@@ -203,7 +203,7 @@
 // render the tasks array
 // delete function: ==>
 
-    const tasks = [];
+   /* const tasks = [];
 
     const ul = document.querySelector("ul");
     const input = document.querySelector("input");
@@ -252,4 +252,4 @@
       tasks.push(newTask);
       renderTasks();
       input.value = "";
-    });
+    });*/
