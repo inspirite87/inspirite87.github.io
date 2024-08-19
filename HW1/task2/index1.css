@@ -1,0 +1,44 @@
+body {
+    background-image: url('lux.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 10px;
+    color: #f0f4f2c4;
+}
+
+.profiles-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.profile-container {
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: rgba(137, 137, 137, 0.596);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.profile-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 10px;
+}
+
+.profile-name {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+.profile-location, .info-text {
+    margin: 5px 0;
+}
