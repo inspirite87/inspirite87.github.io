@@ -1,0 +1,68 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+
+    background-image: url('apple.jpeg');
+    background-size: cover; /* Заставляет картинку покрывать весь фон */
+    background-position: center; /* Центрирует картинку */
+    background-repeat: no-repeat; /* Отменяет повторение картинки */
+}
+
+
+.about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.about-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.about-nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.about-main {
+    text-align: left;
+}
+
+.about-main h1 {
+    font-size: 2.5rem;
+    color: #333;
+}
+
+.about-main p {
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.6;
+    margin: 20px 0;
+}
+
+.about-main button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.about-image {
+    text-align: right;
+    margin-top: 40px;
+}
+
+.about-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
