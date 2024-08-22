@@ -20,9 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
         { code: 'usd', name: 'United States Dollar' },
         { code: 'eur', name: 'Euro' },
         { code: 'gbp', name: 'British Pound Sterling' },
-        { code: 'jpy', name: 'Japanese Yen' },
-        { code: 'cny', name: 'Chinese Yuan' },
-        { code: 'krw', name: 'South Korean Won' },
         { code: 'kgs', name: 'Kyrgyzstani Som' },
         { code: 'kzt', name: 'Kazakhstani Tenge' },
         { code: 'uah', name: 'Ukrainian Hryvnia' }
