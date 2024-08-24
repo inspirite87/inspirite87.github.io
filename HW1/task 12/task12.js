@@ -12,11 +12,11 @@ price: 0,
 }
 */               
 document.addEventListener('DOMContentLoaded', () => {
-    // Создание формы
+    
     const form = document.createElement('form');
     form.id = 'product-form';
 
-    // Создание элементов формы
+
     const imageUrlInput = document.createElement('input');
     imageUrlInput.id = 'image-url';
     imageUrlInput.type = 'text';
@@ -40,24 +40,21 @@ document.addEventListener('DOMContentLoaded', () => {
     addButton.type = 'submit';
     addButton.textContent = 'Add Product';
 
-    // Добавление элементов в форму
     form.appendChild(imageUrlInput);
     form.appendChild(titleInput);
     form.appendChild(descriptionInput);
     form.appendChild(priceInput);
     form.appendChild(addButton);
 
-    // Создание контейнера для списка продуктов
+   
     const productList = document.createElement('div');
     productList.id = 'product-list';
 
-    // Добавление формы и списка продуктов в body
     document.body.appendChild(form);
     document.body.appendChild(productList);
 
     let editingProductId = null;
 
-    // Обработчик отправки формы
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
@@ -81,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             let response;
             if (editingProductId) {
-                // Обновление существующего продукта
+               
                 response = await fetch(`https://solar-poised-salad.glitch.me/products/${editingProductId}`, {
                     method: 'PUT',
                     headers: {
@@ -90,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     body: JSON.stringify(product)
                 });
             } else {
-                // Добавление нового продукта
+                
                 response = await fetch('https://solar-poised-salad.glitch.me/products', {
                     method: 'POST',
                     headers: {
@@ -107,13 +104,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const resultProduct = await response.json();
             form.reset();
             editingProductId = null;
-            loadProducts(); // Перезагрузка списка продуктов после добавления/обновления
+            loadProducts();
         } catch (error) {
             console.error('Error:', error);
         }
     });
 
-    // Функция отображения продукта
+    
     function displayProduct(product) {
         if (!product || !product.title || !product.price) {
             console.error('Invalid product data');
@@ -137,18 +134,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
         productList.appendChild(productItem);
 
-        // Добавление обработчика для кнопки редактирования
+        
         productItem.querySelector('.edit-button').addEventListener('click', () => {
             editProduct(product);
         });
 
-        // Добавление обработчика для кнопки удаления
+        
         productItem.querySelector('.remove-button').addEventListener('click', () => {
             removeProduct(product.id);
         });
     }
 
-    // Функция редактирования продукта
+    
     function editProduct(product) {
         document.getElementById('image-url').value = product.imageUrl || '';
         document.getElementById('title').value = product.title || '';
@@ -158,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
         editingProductId = product.id;
     }
 
-    // Функция удаления продукта
+
     async function removeProduct(productId) {
         try {
             const response = await fetch(`https://solar-poised-salad.glitch.me/products/${productId}`, {
@@ -178,7 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Функция загрузки продуктов
+    
     async function loadProducts() {
         try {
             const response = await fetch('https://solar-poised-salad.glitch.me/products');
@@ -187,12 +184,12 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             const products = await response.json();
-            productList.innerHTML = ''; // Очистка существующих продуктов
+            productList.innerHTML = '';
             products.forEach(product => displayProduct(product));
         } catch (error) {
             console.error('Error fetching products:', error);
         }
     }
 
-    loadProducts(); // Загрузка продуктов при запуске скрипта
+    loadProducts();
 });
