@@ -1,0 +1,99 @@
+
+body {
+    background-image: url('room.jpg');
+    background-size: cover;
+    background-position: center; 
+    background-attachment: fixed;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.favorite-item {
+    border: 1px solid #e1e1e1;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    padding: 20px;
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    background-color: #ffffff; 
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    z-index: 1;
+}
+
+
+.favorite-item:hover {
+    background-color: #beb9b9;
+    transform:  scale(1.05); 
+}
+
+.favorite-item img {
+    max-width: 120px;
+    height: auto;
+    border-radius: 8px;
+    margin-right: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.favorite-item h3 {
+    font-size: 1.4rem;
+    margin: 0;
+    color: #333;
+    font-weight: 600;
+}
+
+
+button {
+    margin-top: 12px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+
+button::before {
+    content: '\f2ed';
+    font-family: 'Font Awesome 5 Free'; 
+    font-weight: 900;
+    margin-right: 10px;
+}
+
+
+button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+button:focus {
+    outline: none;
+}
+
+.return-button {
+    padding: 12px 25px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    margin-top: 25px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.return-button:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+.return-button:focus {
+    outline: none;
+}
